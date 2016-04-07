@@ -1,7 +1,6 @@
 <?php
-// Initial variables
 
-ini_set('memory_limit', '564M');
+
 
 // --- DATABASE CONNECT
 				$username="pure360";
@@ -16,6 +15,8 @@ ini_set('memory_limit', '564M');
 					$connection = mysqli_connect($server,$username,$password,$database,$sql_port);
 	$ip_rem=$_SERVER["REMOTE_ADDR"] . " " . $_SERVER['HTTP_USER_AGENT'] . " " . $_SERVER['REQUEST_URI'];
 	
+	if(!isset($no_out_put))
+	{
 	echo 'Connecting to database ... ';
 	// Check connection
 	
@@ -30,6 +31,7 @@ ini_set('memory_limit', '564M');
 				echo "DONE \n";
 			$connected_to=$server;
 		}
+	}
 
 
 

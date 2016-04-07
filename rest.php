@@ -4,13 +4,12 @@
 ini_set('memory_limit', '564M');
 
 // --- DATABASE CONNECT
+$no_out_put=1;
 include('connect.php');
 
 $ip=$_GET['ip'];
 
-$ipbits=explode('.',$ip);
-$ipfirst=$ipbits[0] . '.' . $ipbits[1] . '.' . $ipbits[2] ;
-$iplast=$ipbits[3];	
+$iplong=ip2long($ip);	
 
 
 // ----------------------------- READ FROM DATABASE
@@ -18,7 +17,7 @@ $iplast=$ipbits[3];
 //echo "$ipfirst-$iplast";
 
 
-$result = mysqli_query($connection,"SELECT *  FROM ipgeo WHERE `ip1` LIKE '" . $ipfirst . "' AND `ip2` <= $iplast AND `ip3` >= $iplast LIMIT 0,10");
+$result = mysqli_query($connection,"SELECT *  FROM ipgeo WHERE `a` <= $iplong AND `b` >= $iplong LIMIT 0,10");
 
  
   
