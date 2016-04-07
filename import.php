@@ -66,7 +66,7 @@ foreach ($data as $entry)
 			$q.=',';	
 		}
 		
-	$q.= "('','" . ipFirstBit($entry[0]) . "','" . ipLastBit($entry[0]) . "','" . ipLastBit($entry[1]) . "','" . $entry[2] . "','" . $entry[3] . "','" . $entry[4] . "','" . addslashes($entry[5]) . "')";	
+	$q.= "('',INET_ATON('" . trim($entry[0]) . "'),INET_ATON('" . trim($entry[1]) . "'),'" . $entry[2] . "','" . $entry[3] . "','" . $entry[4] . "','" . addslashes($entry[5]) . "')";	
 	
 	$countRecords++;
 	
